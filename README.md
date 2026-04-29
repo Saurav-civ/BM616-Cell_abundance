@@ -12,7 +12,7 @@ This project explores two complementary approaches to tackle this:
 1.  **Multi-Scale CNNs:** To capture both local and contextual visual information from tissue patches.
 2.  **Structured Inter-Cell Refinement:** A two-stage framework where initial predictions are corrected using learned dependencies (co-occurrences and mutual exclusions) between cell types.
 
-## 📂 Repository Structure
+## Repository Structure
 
 *   **`configs/`**: Contains `config.json` for model and training parameters.
 *   **`data_preprocessing/`**:
