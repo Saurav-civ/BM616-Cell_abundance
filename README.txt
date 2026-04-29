@@ -1,10 +1,9 @@
-
 # Cell-Type Composition Prediction from H&E Images
 
-**Authors:** Aditya Deori, Ipsita Pandey, Saurav Ray 
-**Institution:** Indian Institute of Technology Ropar 
+**Authors:** Aditya Deori, Ipsita Pandey, Saurav Ray  
+**Institution:** Indian Institute of Technology Ropar  
 **Course:** BM616 Machine Learning Project  
-**Faculty Mentor:** Dr. Sukrit Gupta 
+**Faculty Mentor:** Dr. Sukrit Gupta  
 
 ## Project Overview
 Predicting spatially resolved cell-type composition from Hematoxylin-and-Eosin (H&E) stained tissue images is a challenging computational pathology problem. The visual appearance of cells is often ambiguous, and target cell abundances are not independent. 
@@ -13,7 +12,7 @@ This project explores two complementary approaches to tackle this:
 1.  **Multi-Scale CNNs:** To capture both local and contextual visual information from tissue patches.
 2.  **Structured Inter-Cell Refinement:** A two-stage framework where initial predictions are corrected using learned dependencies (co-occurrences and mutual exclusions) between cell types.
 
-## Repository Structure
+## 📂 Repository Structure
 
 *   **`configs/`**: Contains `config.json` for model and training parameters.
 *   **`data_preprocessing/`**:
@@ -34,7 +33,7 @@ The baseline is a **ResNet18** architecture that takes a fixed-size patch and di
 ### 2. Two-Stage Refinement
 Because biological tissue exhibits structured relationships, predicting cell types independently leads to inconsistencies. We introduced an **ElasticNet regression** refinement stage. It learns a linear combination of all predicted cell types to enforce global consistency:
 $\hat{y}_{i}=\sum_{j=1}^{35}w_{ij}x_{j}$
-where $x_{j}$ are the first-stage predictions and $w_{ij}$ are the learned coefficients[cite: 1]. To prevent data leakage, this second stage is trained strictly on out-of-fold (OOF) predictions.
+where $x_{j}$ are the first-stage predictions and $w_{ij}$ are the learned coefficients. To prevent data leakage, this second stage is trained strictly on out-of-fold (OOF) predictions.
 
 *(Note: We also explored a Graph Convolutional Network (GCN) based on spatial proximity, but it did not outperform the CNN baseline.)*
 
